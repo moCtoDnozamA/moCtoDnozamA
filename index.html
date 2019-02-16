@@ -12,6 +12,77 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Nozama</h1>
+      <!-- sign up form-->
+      <form id="sign-up">
+        <label>Sign Up</label> <br />
+        <label>Enter Email:</label>
+        <input type="email" name="credentials[email]" placeholder="Enter email">
+        <label>Enter Password: </label>
+        <input type="password" name="credentials[password]" placeholder="Enter password">
+        <label>Confirm Password:</label>
+        <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password">
+        <button type="submit">Sign Up</button>
+      </form>
+
+      <!-- sign in form-->
+      <form id="sign-in">
+        <label>Sign In</label> <br />
+        <label>Enter Email:</label>
+        <input type="email" name="credentials[email]" placeholder="Enter email">
+        <label>Enter Password: </label>
+        <input type="password" name="credentials[password]" placeholder="Enter password">
+        <button type="submit">Sign Up</button>
+      </form>
+
+      <!-- change password button-->
+      <button type="button" id="change-password">
+        Change Password
+      </button>
+
+      <!-- sign out button-->
+      <button type="button" id="sign-out">
+        Log Out
+      </button>
+
+      <!-- view cart button-->
+      <button type="button" id="view-cart">
+        View Cart
+      </button>
+
+      <!-- add to cart button-->
+      <button type="button" id="add-cart">
+        Add to cart
+      </button>
+
+      <!-- delete from cart button-->
+      <button type="button" id="remove-cart">
+        Remove From Cart
+      </button>
+
+      <!-- checkout button-->
+      <button type="button" id="checkout">
+        Checkout
+      </button>
+
+       <!-- index order button-->
+      <button type="button" id="index-orders">
+        Purchase History
+      </button>
+
+      <!-- show order button -->
+      <button type="button" id="show-order">
+        View Purchase
+      </button>
+
+      <!-- view one product button -->
+      <button type="button" id="show-product">
+        View Product
+      </button>
+
+      <!-- index products button -->
+      <button type="button" id="index-products">
+        Product Index/Home
+      </button>
     </body>
 </html>
