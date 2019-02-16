@@ -7,7 +7,7 @@ const orderEvents = require('./order/events')
 
 $(() => {
   authenticationEvents.addAuthEventHandlers(event)
-  productEvents.addAuthEventHandlers(event)
-  cartEvents.addAuthEventHandlers(event)
-  orderEvents.addAuthEventHandlers(event)
+  productEvents.addProductEventHandlers(event)
+  cartEvents.addCartEventHandlers(event)
+  orderEvents.addOrderEventHandlers(event)
 })
