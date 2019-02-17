@@ -1,0 +1,23 @@
+{{#each products as |product|}}
+
+  <div data-id="{{product.id}}">
+    <div>
+        {{product.imagePath}}
+        <img src="https://i.imgur.com/5AZvv3k.jpg" alt="Wireframe" height="100px" width="100px">
+    </div>
+    <div>
+        {{product.title}}
+    </div>
+    <div>
+        {{product.description}}
+    </div>
+    <div>
+        ${{product.price}}
+    </div>
+    <div>
+      <button class="edit-btn">Edit</button>
+      <button class="delete-btn">Delete</button>
+    </div>
+  </div>
+
+{{/each}}
