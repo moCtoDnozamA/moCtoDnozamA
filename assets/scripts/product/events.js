@@ -24,28 +24,22 @@ const onGetProduct = event => {
   $('form').trigger('reset')
 }
 
-const onSeedProducts = () => {
-  // event.preventDefault()
-  console.log('This is onSeedProducts')
-
-  api.seedProducts()
-    .then(ui.onSeedProductsSuccess)
-    .catch(ui.onSeedProductsFailure)
-
-  $('form').trigger('reset')
-}
+// TODO: Only used to initially seed `products` collection
+// const onSeedProducts = () => {
+//   console.log('This is onSeedProducts')
+//
+//   api.seedProducts()
+//
+//   $('form').trigger('reset')
+// }
+// End TODO: Only used to initially seed `products` collection
 
 const addProductEventHandlers = event => {
-  onSeedProducts()
+  // TODO: Only used to initially seed `products` collection
+  // onSeedProducts()
+  // End TODO: Only used to initially seed `products` collection
   $('#index-products').on('click', onGetProducts)
   $('#show-product').on('click', onGetProduct)
-  // $('#view-ride-history-btn').on('click', onViewRides)
-  // $('#enter-new-ride-form').on('submit', onCreateRide)
-  // $('#update-ride-form').on('submit', onUpdateRide)
-  // $('#view-ride-history-btn').on('click', onViewRides)
-  // $('#done-btn').on('click', onDoneViewingRides)
-  // $('#ride-history-table').on('click', '.edit-btn', displayUpdateRideForm)
-  // $('#ride-history-table').on('click', '.delete-btn', onDeleteRide)
 }
 
 module.exports = {
