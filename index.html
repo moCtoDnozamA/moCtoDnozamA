@@ -12,43 +12,111 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
+
+      <!--nav bar-->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Nozama</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signUpModal">
+                Sign Up
+              </button>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signInModal">
+                Sign In
+              </button>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#changePassModal">
+                Change Password
+              </button>
+              <button class="btn btn-primary" type="button" id="sign-out">
+                Log Out
+              </button>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+
       <h1>Nozama</h1>
       <!-- sign up form-->
-      <form id="sign-up">
-        <label>Sign Up</label> <br />
-        <label>Enter Email:</label>
-        <input type="email" name="credentials[email]" placeholder="Enter email">
-        <label>Enter Password: </label>
-        <input type="password" name="credentials[password]" placeholder="Enter password">
-        <label>Confirm Password:</label>
-        <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password">
-        <button type="submit">Sign Up</button>
-      </form>
+
+      <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog"aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div   class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="sign-up">
+                <label>Enter Email:</label><br>
+                <input type="email" name="credentials[email]" placeholder="Enter email"><br>
+                <label>Enter Password: </label><br>
+                <input type="password" name="credentials[password]" placeholder="Enter password"><br>
+                <label>Confirm Password:</label><br>
+                <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password"><br>
+                <button type="submit">Sign Up</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- sign in form-->
-      <form id="sign-in">
-        <label>Sign In</label> <br />
-        <label>Enter Email:</label>
-        <input type="email" name="credentials[email]" placeholder="Enter email">
-        <label>Enter Password: </label>
-        <input type="password" name="credentials[password]" placeholder="Enter password">
-        <button type="submit">Sign Up</button>
-      </form>
+
+      <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Log In</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="sign-in">
+                <label>Enter Email:</label><br />
+                <input type="email" name="credentials[email]" placeholder="Enter email"><br />
+                <label>Enter Password: </label><br />
+                <input type="password" name="credentials[password]" placeholder="Enter password"><br />
+                <button type="submit">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- change password button-->
-      <form id="change-password">
-        <label>Change Password</label> <br />
-        <label>Old Password:</label>
-        <input type="password" name="passwords[old]" placeholder="Old password here">
-        <label>New Password: </label>
-        <input type="password" name="passwords[new]" placeholder="New password here">
-        <button type="submit">Change password</button>
-      </form>
-
-      <!-- sign out button-->
-      <button type="button" id="sign-out">
-        Log Out
-      </button>
+      <div class="modal fade" id="changePassModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="change-password">
+                <label>Old Password:</label><br>
+                <input type="password" name="passwords[old]" placeholder="Old password here"><br>
+                <label>New Password: </label><br>
+                <input type="password" name="passwords[new]" placeholder="New password here"><br>
+                <button type="submit">Change password</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- view cart button-->
       <button type="button" id="view-cart">
