@@ -1,22 +1,21 @@
 {{#each products as |product|}}
 
-  <div data-id="{{product.id}}">
-    <div>
+  <div data-id="{{product.id}}" class="product">
+    <div class="show-product">
         {{product.imagePath}}
         <img src="https://i.imgur.com/5AZvv3k.jpg" alt="Wireframe" height="100px" width="100px">
     </div>
-    <div>
+    <div class="show-product">
         {{product.title}}
     </div>
-    <div>
+    <div class="show-product">
         {{product.description}}
     </div>
-    <div>
+    <div class="show-product">
         ${{product.price}}
     </div>
     <div>
-      <button class="edit-btn">Edit</button>
-      <button class="delete-btn">Delete</button>
+      <button class="add-cart">Add to Cart</button>
     </div>
   </div>
 
