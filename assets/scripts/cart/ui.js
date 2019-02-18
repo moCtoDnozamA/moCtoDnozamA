@@ -12,7 +12,7 @@ const onGetCartSuccess = response => {
       store.Sum += products[i].quantity * products[i].product.price
     }
   }
-
+  store.Sum = store.Sum.toFixed(2)
   $('#cart').html('')
   const showCartHtml = showCartTemplate({cartProducts: response.cart.products, totalPrice: store.Sum})
   $('#cart').html(showCartHtml)
