@@ -1,7 +1,7 @@
 const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields')
-// const cartEvents = require('../cart/events')
+const cartEvents = require('../cart/events')
 
 const onSignIn = event => {
   event.preventDefault()
@@ -9,7 +9,7 @@ const onSignIn = event => {
   api.signIn(data)
     .then(ui.onSignInSuccess)
     // when sign in can get the cart information
-    // .then(cartEvents.onGetCart)
+    .then(cartEvents.onGetCart)
     .catch(ui.onSignInFailure)
   $('form').trigger('reset')
 }
@@ -20,7 +20,7 @@ const onSignUp = event => {
   api.signUp(data)
     .then(ui.onSignUpSuccess)
     // when sign up success can creata a new cart for user
-    // .then((id) => cartEvents.onCreateCart(id))
+    .then((id) => cartEvents.onCreateCart(id))
     .catch(ui.onSignUpFailure)
   $('form').trigger('reset')
 }
