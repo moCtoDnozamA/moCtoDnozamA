@@ -36,9 +36,14 @@
       </form>
 
       <!-- change password button-->
-      <button type="button" id="change-password">
-        Change Password
-      </button>
+      <form id="change-password">
+        <label>Change Password</label> <br />
+        <label>Old Password:</label>
+        <input type="email" name="passwords[old]" placeholder="Old password">
+        <label>New Password: </label>
+        <input type="password" name="passwords[new]" placeholder="New password">
+        <button type="submit">Change password</button>
+      </form>
 
       <!-- sign out button-->
       <button type="button" id="sign-out">
