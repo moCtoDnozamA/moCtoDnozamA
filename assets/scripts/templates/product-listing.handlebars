@@ -2,17 +2,16 @@
 
   <div data-id="{{product.id}}" class="product">
     <div class="show-product">
-        {{product.imagePath}}
-        <img src="https://i.imgur.com/5AZvv3k.jpg" alt="Wireframe" height="100px" width="100px">
+        <img src={{product.imagePath}} alt="{{product.title}}" style="max-height:150px; max-width:150px">
     </div>
     <div class="show-product">
-        {{product.title}}
+        Title: {{product.title}}
     </div>
     <div class="show-product">
-        {{product.description}}
+        Description: {{product.description}}
     </div>
     <div class="show-product">
-        ${{product.price}}
+        Price: ${{product.price}}
     </div>
     <div>
       <button class="add-cart">Add to Cart</button>
