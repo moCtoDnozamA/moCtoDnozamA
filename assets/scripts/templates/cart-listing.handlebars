@@ -1,0 +1,31 @@
+<div>
+  <h1 class="m-3">Cart
+    {{#if totalPrice}}
+    <span class="badge badge-secondary">Total:{{totalPrice}}</span>
+    {{else}}
+    <span class="badge badge-secondary">New</span>
+    {{/if}}
+  </h1>
+</div>
+<div class="row" >
+    {{#if cartProducts}}
+      {{#each cartProducts as |cartProduct|}}
+        <div class="m-2">
+          <div class="card text-center m-2 " style="width: 18rem;">
+             <img src="{{cartProduct.product.imagePath}}" class="card-img-top" alt="...">
+             <div class="card-body">
+              <p class="card-text">PRODUCT ID:{{cartProduct.product.title}}</p>
+              <p class="card-text">DESCRIPTION:{{cartProduct.product.description}}</p>
+              <p class="card-text">PRICE:{{cartProduct.product.price}}</p>
+              <p class="card-text">QUANTITY: {{cartProduct.quantity}}</p>
+              <button class='subtractionCart btn btn-primary m-3' data-id={{cartProduct.product._id}}>-</button>
+              <button class='addCart btn btn-primary m-3' data-id={{cartProduct.product._id}}>+</button>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+      {{else}}
+        <h3>Cart empty now</h3>
+      {{/if}}
+</div>
+<button class="btn btn-primary" id="checkout">Checkout</button>
