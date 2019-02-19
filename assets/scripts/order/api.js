@@ -26,9 +26,9 @@ const saveOrder = (data) => {
   })
 }
 
-const getOrders = () => {
+const getOrders = (id) => {
   return $.ajax({
-    url: config.apiUrl + '/orders',
+    url: config.apiUrl + '/orders/' + id,
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
