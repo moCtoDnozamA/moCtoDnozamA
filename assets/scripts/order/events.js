@@ -23,20 +23,15 @@ const handleToken = function (token) {
   api.checkout(token)
     .then(ui.onCheckoutSuccess)
     .then((response) => {
-      console.log('response is:', response)
       const products = store.cart.products
       const newporducts = []
       for (let i = 0; i < products.length; i++) {
         for (const key in products[i]) {
-          console.log('key', products[i])
-          console.log('key', key)
           if (key === 'product') {
             const product = products[i][key]
             store.orderProduct = (({ imagePath,description,price,title }) => ({ imagePath, description, price, title }))(product)
-            console.log('picked', store.orderProduct)
           }
           if (key === 'quantity') {
-            console.log('picked in quantity', store.orderProduct)
             const quantity = products[i][key]
             newporducts.push({product: store.orderProduct, quantity: quantity})
           }
@@ -50,9 +45,6 @@ const handleToken = function (token) {
           totalPrice: store.Sum
         }
       }
-      console.log('store.purchase is: ', purchase)
-      console.log('store.cart is: ', store.cart)
-      console.log('store.Sum is: ', store.Sum)
       api.saveOrder(purchase)
         .then(console.log)
         .catch(console.error)
