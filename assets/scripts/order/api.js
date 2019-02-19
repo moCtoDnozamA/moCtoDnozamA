@@ -15,6 +15,18 @@ const checkout = (token) => {
   })
 }
 
+const saveOrder = (data) => {
+  return $.ajax({
+    url: config.apiUrl + '/orders',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
 module.exports = {
-  checkout
+  checkout,
+  saveOrder
 }

@@ -24,6 +24,18 @@ const handleToken = function (token) {
     .then(ui.onCheckoutSuccess)
     .then((response) => {
       console.log('response is:', response)
+      store.purchase = {
+        order: {
+          orderData: store.cart.products,
+          totalPrice: store.Sum
+        }
+      }
+      console.log('store.purchase is: ', store.purchase)
+      console.log('store.cart is: ', store.cart)
+      console.log('store.Sum is: ', store.Sum)
+      api.saveOrder(store.purchase)
+        .then(console.log('SUCCESS!!!'))
+        .catch(console.log('FAIL'))
     })
     .catch(ui.onCheckoutFailure)
 }
