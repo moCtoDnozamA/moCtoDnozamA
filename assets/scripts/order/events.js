@@ -22,6 +22,9 @@ const handleToken = function (token) {
   console.log(store.Sum)
   api.checkout(token)
     .then(ui.onCheckoutSuccess)
+    .then((response) => {
+      console.log('response is:', response)
+    })
     .catch(ui.onCheckoutFailure)
 }
 
