@@ -4,8 +4,6 @@ const api = require('./api')
 const ui = require('./ui')
 
 const onGetProducts = event => {
-  event.preventDefault()
-
   api.getProducts()
     .then(ui.onGetProductsSuccess)
     .catch(ui.onGetProductsFailure)
@@ -35,10 +33,12 @@ const onGetProduct = event => {
 // }
 // End TODO: Only used to initially seed `products` collection
 
-const addProductEventHandlers = event => {
+const addProductEventHandlers = () => {
   // TODO: Only used to initially seed `products` collection
   // onSeedProducts()
   // End TODO: Only used to initially seed `products` collection
+  // Show all products on page load
+  onGetProducts()
   // For click on "Home" button
   $('#index-products').on('click', onGetProducts)
   // For click on View Product button - not add to cart button
