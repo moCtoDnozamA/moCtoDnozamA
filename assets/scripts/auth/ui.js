@@ -1,7 +1,12 @@
 const store = require('../store')
 
 const onSignInSuccess = response => {
-  $('#user-message').html('<a class="btn btn-danger">Sign in success</a>')
+  console.log(response.user)
+  if (response.user.admin) {
+    $('#user-message').html(`<a class='btn btn-danger'>welcome admin ${response.user.email}</a>`)
+  } else {
+    $('#user-message').html('<a class="btn btn-danger">Sign in success</a>')
+  }
   store.user = response.user
 }
 
