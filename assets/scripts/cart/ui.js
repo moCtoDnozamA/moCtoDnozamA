@@ -1,3 +1,5 @@
+'use strict'
+
 const store = require('../store')
 const showCartTemplate = require('../templates/cart-listing.handlebars')
 
