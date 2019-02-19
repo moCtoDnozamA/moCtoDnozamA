@@ -49,5 +49,6 @@ const addProductEventHandlers = () => {
 }
 
 module.exports = {
-  addProductEventHandlers
+  addProductEventHandlers,
+  onGetProducts
 }
