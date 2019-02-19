@@ -1,4 +1,5 @@
 const store = require('../store')
+const productEvents = require('../product/events')
 
 const onSignInSuccess = response => {
   console.log(response.user)
@@ -8,6 +9,8 @@ const onSignInSuccess = response => {
     $('#user-message').html('<a class="btn btn-danger">Sign in success</a>')
   }
   store.user = response.user
+  // reload product listing with "Add to Cart" buttons on successful sign in
+  productEvents.onGetProducts()
 }
 
 const onSignUpSuccess = response => {
@@ -20,6 +23,8 @@ const onSignOutSuccess = response => {
   store.user = null
   store.cart = null
   store.Sum = null
+  // reload product listing with "Sign in to Add to Cart" message on sign out
+  productEvents.onGetProducts()
 }
 
 const onChangePasswordSuccess = response => {
