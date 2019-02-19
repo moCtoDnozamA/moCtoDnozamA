@@ -14,7 +14,11 @@
         Price: ${{product.price}}
     </div>
     <div>
-      <button class="add-cart" data-id="{{product.id}}">Add to Cart</button>
+      {{#if product.userIsLoggedIn}}
+        <button class="add-cart" data-id="{{product.id}}">Add to Cart</button>
+      {{else}}
+        Sign in to Add to Cart
+      {{/if}}
     </div>
   </div>
 
