@@ -24,18 +24,38 @@ const handleToken = function (token) {
     .then(ui.onCheckoutSuccess)
     .then((response) => {
       console.log('response is:', response)
-      store.purchase = {
+      const products = store.cart.products
+      const newporducts = []
+      for (let i = 0; i < products.length; i++) {
+        for (const key in products[i]) {
+          console.log('key', products[i])
+          console.log('key', key)
+          if (key === 'product') {
+            const product = products[i][key]
+            store.orderProduct = (({ imagePath,description,price,title }) => ({ imagePath, description, price, title }))(product)
+            console.log('picked', store.orderProduct)
+          }
+          if (key === 'quantity') {
+            console.log('picked in quantity', store.orderProduct)
+            const quantity = products[i][key]
+            newporducts.push({product: store.orderProduct, quantity: quantity})
+          }
+        }
+      }
+      const purchase = {
         order: {
-          orderData: store.cart.products,
+          orderData: {
+            products: newporducts
+          },
           totalPrice: store.Sum
         }
       }
-      console.log('store.purchase is: ', store.purchase)
+      console.log('store.purchase is: ', purchase)
       console.log('store.cart is: ', store.cart)
       console.log('store.Sum is: ', store.Sum)
-      api.saveOrder(store.purchase)
-        .then(console.log('SUCCESS!!!'))
-        .catch(console.log('FAIL'))
+      api.saveOrder(purchase)
+        .then(console.log)
+        .catch(console.error)
     })
     .catch(ui.onCheckoutFailure)
 }
@@ -49,8 +69,15 @@ const onCheckout = () => {
   })
 }
 
+const onGetOrders = () => {
+  api.getOrders()
+    .then(console.log)
+    .catch()
+}
+
 const addOrderEventHandlers = () => {
   $('body').on('click', '#checkout', onCheckout)
+  $('#index-orders').on('click', onGetOrders)
 }
 
 module.exports = {
