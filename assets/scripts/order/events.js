@@ -24,7 +24,7 @@ const handleToken = function (token) {
     .then(ui.onCheckoutSuccess)
     .then((response) => {
       const products = store.cart.products
-      const newporducts = []
+      const newPorducts = []
       for (let i = 0; i < products.length; i++) {
         for (const key in products[i]) {
           if (key === 'product') {
@@ -33,14 +33,14 @@ const handleToken = function (token) {
           }
           if (key === 'quantity') {
             const quantity = products[i][key]
-            newporducts.push({product: store.orderProduct, quantity: quantity})
+            newPorducts.push({product: store.orderProduct, quantity: quantity})
           }
         }
       }
       const purchase = {
         order: {
           orderData: {
-            products: newporducts
+            products: newPorducts
           },
           totalPrice: store.Sum
         }
