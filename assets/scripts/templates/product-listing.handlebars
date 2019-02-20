@@ -1,6 +1,5 @@
 {{#each products as |product|}}
 
-  <div data-id="{{product.id}}" class="product">
     <!-- <div class="show-product">
         <img src={{product.imagePath}} alt="{{product.title}}" style="max-height:150px; max-width:150px">
     </div>
@@ -20,10 +19,9 @@
         Sign in to Add to Cart
       {{/if}}
     </div> -->
-    <div class="container">
-  <div class="row">
-    <div class="col-sm">
-    <div class="show-product card-deck card-columns">
+
+  <div class="col-md-4 col-xs-6 product" data-id="{{product.id}}" style="width: 40rem;">
+    <div class="show-product card-group">
       <div class="card">
         <img class="show-product card-img-top" src="{{product.imagePath}}" alt="Card image cap">
         <div class="card-body">
@@ -39,8 +37,4 @@
       </div>
     </div>
   </div>
-</div>
-</div>
-  </div>
-
 {{/each}}
