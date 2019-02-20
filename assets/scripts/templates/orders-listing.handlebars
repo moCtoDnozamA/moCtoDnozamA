@@ -1,4 +1,6 @@
 {{#if products}}
+    <h3 class="card-title">TotalPrice: {{price}}</h3>
+    <p class="card-text"><small class="text-muted">Date: {{date}}</small></p>
   {{#each products as |product|}}
   <div class="row" >
     <div class="card mb-3" style="max-width: 540px;">
@@ -8,10 +10,10 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">Title:{{product.product.title}}</h5>
-            <p class="card-text">Description:{{product.product.description}}</p>
-            <p class="card-text">Price:{{product.product.price}}</p>
-            <p class="card-text">Quantity:{{product.quantity}}</p>
+            <h4 class="card-title">Title: {{product.product.title}}</h5>
+            <p class="card-text">Description: {{product.product.description}}</p>
+            <p class="card-text">Price: ${{product.product.price}}</p>
+            <p class="card-text">Quantity: {{product.quantity}}</p>
           </div>
         </div>
       </div>
