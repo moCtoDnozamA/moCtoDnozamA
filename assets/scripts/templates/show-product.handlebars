@@ -1,20 +1,19 @@
-
-  <div data-id="{{product.id}}" class="product">
-    <div class="container">
-  <div class="row">
-    <div class="col-sm">
-    <div class="show-product card-deck card-columns">
-        <img class="show-product" src="{{product.imagePath}}" alt="image cap">
-          <h5 class="show-product">{{limit product.title 20}}</h5>
-          <p class="show-product">{{limit product.description 120}}</p>
-          <p class="show-product">Price: ${{product.price}}</p>
-          {{#if product.userIsLoggedIn}}
-          <center><button class="add-cart" data-id="{{product.id}}">Add to Cart</button></center>
-          {{else}}
-          Sign in to Add to Cart
-          {{/if}}
+<div data-id="{{product.id}}" class="product">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <div class="show-product card-deck card-columns">
+          <img class="show-product" src="{{product.imagePath}}" alt="image cap">
+            <h5 class="show-product">{{limit product.title 20}}</h5>
+            <p class="show-product">{{limit product.description 120}}</p>
+            <p class="show-product">Price: ${{product.price}}</p>
+            {{#if product.userIsLoggedIn}}
+            <center><button class="add-cart" data-id="{{product.id}}">Add to Cart</button></center>
+            {{else}}
+            Sign in to Add to Cart
+            {{/if}}
+          </div>
+      </div>
     </div>
   </div>
 </div>
-</div>
-  </div>
