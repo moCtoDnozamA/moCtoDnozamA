@@ -6,10 +6,10 @@ const showSeedButtonTemplate = require('../templates/show-seedButton.handlebars'
 
 const onSignInSuccess = response => {
   if (response.user.admin) {
-    $('#user-message').html(`<a class='btn btn-danger'>welcome admin ${response.user.email}</a>`)
+    $('#user-message').html(`<a class='btn btn-success'>welcome admin ${response.user.email}</a>`)
     $('#seed').html(showSeedButtonTemplate)
   } else {
-    $('#user-message').html('<a class="btn btn-danger" id="seed-message">Sign in success</a>')
+    $('#user-message').html('<a class="btn btn-success" id="seed-message">Sign in success</a>')
   }
   store.user = response.user
   // reload product listing with "Add to Cart" buttons on successful sign in
@@ -27,12 +27,12 @@ const onSignInSuccess = response => {
 }
 
 const onSignUpSuccess = response => {
-  $('#user-message').html('<a class="btn btn-danger">Sign up success</a>')
+  $('#user-message').html('<a class="btn btn-success">Sign up success</a>')
   return response.user._id
 }
 
 const onSignOutSuccess = response => {
-  $('#user-message').html('<a class="btn btn-danger">Sign out success</a>')
+  $('#user-message').html('<a class="btn btn-success">Sign out success</a>')
   $('#seed').html('')
   store.user = null
   store.cart = null
@@ -53,7 +53,7 @@ const onSignOutSuccess = response => {
 }
 
 const onChangePasswordSuccess = response => {
-  $('#user-message').html('<a class="btn btn-danger">Change Password success</a>')
+  $('#user-message').html('<a class="btn btn-success">Change Password success</a>')
 }
 
 const onSignInFailure = response => {

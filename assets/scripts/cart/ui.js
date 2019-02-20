@@ -31,7 +31,17 @@ const onShowCartSuccess = (response) => {
   $('#orders').hide()
 }
 
+const onUpdateCartSuccess = () => {
+  $('#user-message').html('<a class="btn btn-success">Update cart success</a>')
+}
+
+const onFailure = () => {
+  $('#user-message').html('<a class="btn btn-danger">Error.</a>')
+}
+
 module.exports = {
   onGetCartSuccess,
-  onShowCartSuccess
+  onShowCartSuccess,
+  onUpdateCartSuccess,
+  onFailure
 }
