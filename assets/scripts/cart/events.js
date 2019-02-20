@@ -85,6 +85,7 @@ const onRemoveProduct = event => {
 }
 
 const addCartEventHandlers = () => {
+  $('body').on('click', '#view-cart', onGetCart)
   $('body').on('click', '.add-cart', onAddCart)
   $('#view-cart').on('click', onGetCart)
   $('body').on('click', '.addCart', onAddCart)

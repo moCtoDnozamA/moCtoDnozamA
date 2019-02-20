@@ -7,6 +7,7 @@
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
       <link href="https://fonts.googleapis.com/css?family=Rakkas" rel="stylesheet">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
@@ -25,6 +26,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active" id='action-list'>
+              <button id="sidebar" class="btn btn-primary" onclick="openNav()"><i class="fas fa-shopping-cart"></i></button>
               <button class="index btn btn-primary" type="button" id="index-products">
                 Home
               </button>
@@ -40,16 +42,6 @@
               <button class="sign-out btn btn-primary" type="button" id="sign-out">
                 Log Out
               </button>
-              <button class="view-cart btn btn-primary" type="button" id="view-cart">
-                View Cart
-              </button>
-              <button class="checkout btn btn-primary" type="button" id="checkout">
-                Checkout
-              </button>
-              <button type="button" class="btn btn-primary index-orders" id="index-orders">
-                Purchase History
-              </button>
-              <a id='seed'></a>
             </li>
           </ul>
           <form class="form-inline my-2 my-lg-0">
@@ -58,6 +50,35 @@
           </form>
         </div>
       </nav>
+
+      <!-- Side bar -->
+      <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a><br><br>
+        <button class="view-cart btn btn-block btn-primary" type="button" id="view-cart">
+          View Cart
+        </button>
+        <!-- <button id="view-cart" class="btn btn-block btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">View Cart</button>
+        <br> -->
+        <button class="checkout btn btn-block btn-primary" type="button" id="checkout">
+          Checkout
+        </button>
+        <button type="button" class="btn btn-block btn-primary index-orders" id="index-orders">
+          Purchase History
+        </button><br>
+        <a id='seed'></a>
+      </div>
+
+      <script>
+      function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+      }
+      </script>
 
       <div class="container">
 
@@ -179,7 +200,7 @@
       <h1 class="quote">"And all your future lies beneath your hat."<br><span class="quote-name">- John Oldham</span></h1>
 <hr>
       <div id="user-message"></div>
-      <section class='row' id="products">
+      <section class='row products' id="products">
 
       </section>
       <div id="cart"></div>
