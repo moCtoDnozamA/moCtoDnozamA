@@ -38,6 +38,7 @@ const onSignUpIn = (event) => {
   const dataWithoutPC = store.credentials
   api.signIn(dataWithoutPC)
     .then(ui.onSignInSuccess)
+    .then(cartEvents.onGetCart)
     .catch(ui.onFailure)
 }
 
