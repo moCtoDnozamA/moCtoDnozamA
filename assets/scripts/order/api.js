@@ -4,7 +4,7 @@ const config = require('../config')
 const store = require('../store')
 
 const checkout = (token) => {
-  console.log(token)
+  // console.log(token)
   return $.ajax({
     url: config.apiUrl + '/charge',
     method: 'POST',

@@ -12,6 +12,7 @@ const onSignIn = event => {
   api.signIn(data)
     .then(ui.onSignInSuccess)
     // when sign in can get the cart information
+    .then(cartEvents.onGetCart)
     .catch(ui.onSignInFailure)
   $('form').trigger('reset')
   $('#signInModal').modal('hide')
@@ -37,6 +38,7 @@ const onSignUpIn = (event) => {
   const dataWithoutPC = store.credentials
   api.signIn(dataWithoutPC)
     .then(ui.onSignInSuccess)
+    .then(cartEvents.onGetCart)
     .catch(ui.onFailure)
 }
 
