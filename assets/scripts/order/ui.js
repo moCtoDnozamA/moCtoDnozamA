@@ -3,7 +3,6 @@
 const showOrdersTemplate = require('../templates/orders-listing.handlebars')
 const showTitleTemplate = require('../templates/order-title.handlebars')
 
-
 const onGetOrdersSuccess = response => {
   console.log(response)
   $('#orders').html('')
@@ -15,6 +14,9 @@ const onGetOrdersSuccess = response => {
     const showOrderHTML = showOrdersTemplate({products: products})
     $('#orders').append(showOrderHTML)
     $('#orders').append('<hr>')
+    $('#products').hide()
+    $('#cart').hide()
+    $('#orders').show()
   }
 }
 const onGetOrdersFail = () => {

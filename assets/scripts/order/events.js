@@ -74,7 +74,7 @@ const onGetOrders = () => {
 
 const addOrderEventHandlers = () => {
   $('body').on('click', '#checkout', onCheckout)
-  $('#index-orders').on('click', onGetOrders)
+  $('.index-orders').on('click', onGetOrders)
 }
 
 module.exports = {

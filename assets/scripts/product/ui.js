@@ -20,6 +20,9 @@ const onGetProductsSuccess = productsData => {
   const showProductsHTML = showProductsTemplate({ products: productsData.products })
   // add indexed products to div for output to user
   $('#products').html(showProductsHTML)
+  $('#products').show()
+  $('#cart').hide()
+  $('#orders').hide()
 }
 
 const onGetProductSuccess = productData => {
