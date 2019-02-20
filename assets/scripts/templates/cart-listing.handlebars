@@ -10,19 +10,22 @@
 <div class="row" >
     {{#if cartProducts}}
       {{#each cartProducts as |cartProduct|}}
-        <div class="m-2">
-          <div class="card text-center m-2 " style="width: 18rem;">
-             <img src="{{cartProduct.product.imagePath}}" class="card-img-top" alt="...">
-             <div class="card-body">
-              <p class="card-title">{{cartProduct.product.title}}</p>
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="{{cartProduct.product.imagePath}}" class="card-img" alt="buy me">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{cartProduct.product.title}}</h5>
               <p class="card-text">{{cartProduct.product.description}}</p>
-              <p class="card-text">PRICE: ${{cartProduct.product.price}}</p>
               <p class="card-text">QUANTITY: {{cartProduct.quantity}}</p>
               <button class='subtractionCart btn btn-primary m-3' data-id={{cartProduct.product._id}}>-</button>
               <button class='addCart btn btn-primary m-3' data-id={{cartProduct.product._id}}>+</button>
             </div>
           </div>
         </div>
+      </div>
       {{/each}}
       {{else}}
         <h3>Add something to the cart!</h3>
