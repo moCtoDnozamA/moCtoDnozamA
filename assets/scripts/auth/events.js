@@ -4,6 +4,7 @@ const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields')
 const cartEvents = require('../cart/events')
+const store = require('../store')
 
 const onSignIn = event => {
   event.preventDefault()
@@ -19,12 +20,22 @@ const onSignIn = event => {
 const onSignUp = event => {
   event.preventDefault()
   const data = getFormFields(event.target)
+  store.credentials = data
   api.signUp(data)
     .then(ui.onSignUpSuccess)
+    .then(onSignUpIn)
     // when sign up success can creata a new cart for user
     .then((id) => cartEvents.onCreateCart(id))
     .catch(ui.onSignUpFailure)
   $('form').trigger('reset')
+}
+
+const onSignUpIn = (event) => {
+  delete store.credentials.password_confirmation
+  const dataWithoutPC = store.credentials
+  api.signIn(dataWithoutPC)
+    .then(ui.onSignInSuccess)
+    .catch(ui.onFailure)
 }
 
 const onSignOut = event => {
