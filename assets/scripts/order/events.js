@@ -10,17 +10,7 @@ const checkoutHandler = StripeCheckout.configure({
   locale: 'auto'
 })
 
-// const button = document.getElementById('checkout')
-// button.addEventListener('click', function (ev) {
-//   checkoutHandler.open({
-//     name: 'Sample Store',
-//     description: 'Example Purchase',
-//     token: handleToken
-//   })
-// })
-
 const handleToken = function (token) {
-  // console.log(store.Sum)
   api.checkout(token)
     .then(ui.onCheckoutSuccess)
     .then((response) => {
@@ -29,10 +19,8 @@ const handleToken = function (token) {
       for (let i = 0; i < products.length; i++) {
         for (const key in products[i]) {
           if (key === 'product') {
-            // console.log('key is product', products[i][key])
             const product = products[i][key]
-            store.orderProduct = (({ imagePath,description,price,title }) => ({ imagePath, description, price, title }))(product)
-            // console.log('picked is product', store.orderProduct)
+            store.orderProduct = (({ imagePath, description, price, title }) => ({ imagePath, description, price, title }))(product)
           }
           if (key === 'quantity') {
             store.orderQuantity = products[i][key]
@@ -64,8 +52,7 @@ const onSaveOrder = data => {
       cartEvents.onUpdateCart(store.emptyCart)
       return store.emptyCart
     })
-    .then(console.log('clean cart success'))
-    .catch(console.error)
+    .catch(ui.onFailure)
 }
 
 const onCheckout = () => {
