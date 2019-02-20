@@ -5,9 +5,9 @@ const ui = require('./ui')
 const store = require('../store')
 
 // const onGetCarts = event => {
-//   console.log(store.user._id)
+//   // console.log(store.user._id)
 //   api.getCarts()
-//     .then(console.log)
+//     .then(// console.log)
 //     .catch(console.error)
 // }
 
@@ -17,22 +17,28 @@ const onGetCart = () => {
     .catch(console.error)
 }
 
+const onShowCart = () => {
+  api.getCart(store.user._id)
+    .then(ui.onShowCartSuccess)
+    .catch(console.error)
+}
+
 const onCreateCart = id => {
-  console.log('create cart')
+  // console.log('create cart')
   api.createCart(id)
     .then(console.log)
     .catch()
 }
 
 const onAddCart = event => {
-  // console.log(event)
+  // // console.log(event)
   // const productId = $(event.target).closest('div.product').data('id')
-  // console.log(productId)
+  // // console.log(productId)
   const productId = event.target.dataset.id
-  // console.log(productId)
-  // console.log('cart in add', store.cart)
+  // // console.log(productId)
+  // // console.log('cart in add', store.cart)
   const cart = store.cart
-  // console.log(cart)
+  // // console.log(cart)
   const productAddToCart = {
     product: productId,
     quantity: 1
@@ -52,10 +58,10 @@ const onAddCart = event => {
     cart.products.push(productAddToCart)
   }
 
-  console.log('sum is', store.Sum)
+  // console.log('sum is', store.Sum)
   store.data = {}
   store.data.cart = cart
-  console.log('data', store.data)
+  // console.log('data', store.data)
   onUpdateCart(store.data)
 }
 
@@ -68,7 +74,7 @@ const onUpdateCart = data => {
 
 const onRemoveProduct = event => {
   const productId = event.target.dataset.id
-  console.log(productId)
+  // console.log(productId)
   const cart = store.cart
   for (let i = 0; i < cart.products.length; i++) {
     const products = cart.products[i]
@@ -80,14 +86,13 @@ const onRemoveProduct = event => {
 
   store.data = {}
   store.data.cart = cart
-  console.log('data', store.data)
+  // console.log('data', store.data)
   onUpdateCart(store.data)
 }
 
 const addCartEventHandlers = () => {
-  $('body').on('click', '#view-cart', onGetCart)
   $('body').on('click', '.add-cart', onAddCart)
-  $('#view-cart').on('click', onGetCart)
+  $('#view-cart').on('click', onShowCart)
   $('body').on('click', '.addCart', onAddCart)
   $('body').on('click', '.subtractionCart', onRemoveProduct)
 }
@@ -96,5 +101,6 @@ module.exports = {
   addCartEventHandlers,
   onCreateCart,
   onGetCart,
-  onUpdateCart
+  onUpdateCart,
+  onShowCart
 }
