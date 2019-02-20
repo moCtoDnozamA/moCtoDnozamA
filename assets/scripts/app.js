@@ -4,7 +4,7 @@ const authenticationEvents = require('./auth/events')
 const productEvents = require('./product/events')
 const cartEvents = require('./cart/events')
 const orderEvents = require('./order/events')
-
+const searchProducts = require('./product/search')
 $(() => {
   $('.carousel').carousel()
   $('.change-password').hide()
@@ -16,4 +16,5 @@ $(() => {
   productEvents.addProductEventHandlers()
   cartEvents.addCartEventHandlers()
   orderEvents.addOrderEventHandlers()
+  searchProducts()
 })
