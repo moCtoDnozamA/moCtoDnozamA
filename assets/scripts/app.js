@@ -6,6 +6,12 @@ const cartEvents = require('./cart/events')
 const orderEvents = require('./order/events')
 
 $(() => {
+  $('.carousel').carousel()
+  $('.change-password').hide()
+  $('.sign-out').hide()
+  $('.index').hide()
+  $('.view-cart').hide()
+  $('.checkout').hide()
   authenticationEvents.addAuthEventHandlers()
   productEvents.addProductEventHandlers()
   cartEvents.addCartEventHandlers()
