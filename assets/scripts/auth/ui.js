@@ -13,6 +13,13 @@ const onSignInSuccess = response => {
   store.user = response.user
   // reload product listing with "Add to Cart" buttons on successful sign in
   productEvents.onGetProducts()
+  $('.change-password').show()
+  $('.sign-out').show()
+  $('.index').show()
+  $('.view-cart').show()
+  $('.checkout').show()
+  $('.sign-in').hide()
+  $('.sign-up').hide()
 }
 
 const onSignUpSuccess = response => {
@@ -27,6 +34,10 @@ const onSignOutSuccess = response => {
   store.Sum = null
   // reload product listing with "Sign in to Add to Cart" message on sign out
   productEvents.onGetProducts()
+  $('.change-password').hide()
+  $('.sign-out').hide()
+  $('.index').hide()
+  $('.view-cart').hide()
 }
 
 const onChangePasswordSuccess = response => {

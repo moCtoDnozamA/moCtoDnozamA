@@ -15,6 +15,7 @@ const onSignIn = event => {
     .then(cartEvents.onGetCart)
     .catch(ui.onSignInFailure)
   $('form').trigger('reset')
+  $('#signInModal').modal('hide')
 }
 
 const onSignUp = event => {
@@ -28,6 +29,7 @@ const onSignUp = event => {
     .then((id) => cartEvents.onCreateCart(id))
     .catch(ui.onSignUpFailure)
   $('form').trigger('reset')
+  $('#signUpModal').modal('hide')
 }
 
 const onSignUpIn = (event) => {
@@ -44,6 +46,7 @@ const onSignOut = event => {
     .then(ui.onSignOutSuccess)
     .catch(ui.onSignOutFailure)
   $('form').trigger('reset')
+  $('#signUpModal').modal('hide')
 }
 
 const onChangePassword = event => {
@@ -53,6 +56,7 @@ const onChangePassword = event => {
     .then(ui.onChangePasswordSuccess)
     .catch(ui.onChangePasswordFailure)
   $('form').trigger('reset')
+  $('#changePassModal').modal('hide')
 }
 
 const addAuthEventHandlers = () => {
