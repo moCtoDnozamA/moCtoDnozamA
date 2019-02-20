@@ -23,28 +23,33 @@ const handleToken = function (token) {
   api.checkout(token)
     .then(ui.onCheckoutSuccess)
     .then((response) => {
+      console.log('response in then', response)
+      console.log('cart in response', store.cart)
       const products = store.cart.products
-      const newProducts = []
+      store.newProducts = []
       for (let i = 0; i < products.length; i++) {
         for (const key in products[i]) {
           if (key === 'product') {
+            console.log('key is product', products[i][key])
             const product = products[i][key]
             store.orderProduct = (({ imagePath,description,price,title }) => ({ imagePath, description, price, title }))(product)
+            console.log('picked is product', store.orderProduct)
           }
           if (key === 'quantity') {
-            const quantity = products[i][key]
-            newProducts.push({product: store.orderProduct, quantity: quantity})
+            store.orderQuantity = products[i][key]
           }
         }
+        store.newProducts.push({product: store.orderProduct, quantity: store.orderQuantity})
       }
       const purchase = {
         order: {
           orderData: {
-            products: newProducts
+            products: store.newProducts
           },
           totalPrice: store.Sum
         }
       }
+      console.log(purchase)
       api.saveOrder(purchase)
         .then(console.log)
         .catch(console.error)
@@ -63,8 +68,8 @@ const onCheckout = () => {
 
 const onGetOrders = () => {
   api.getOrders(store.user._id)
-    .then(console.log)
-    .catch()
+    .then(ui.onGetOrdersSuccess)
+    .catch(ui.onGetOrdersFail)
 }
 
 const addOrderEventHandlers = () => {
