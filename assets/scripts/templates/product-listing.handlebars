@@ -1,0 +1,40 @@
+{{#each products as |product|}}
+
+    <!-- <div class="show-product">
+        <img src={{product.imagePath}} alt="{{product.title}}" style="max-height:150px; max-width:150px">
+    </div>
+    <div class="show-product">
+        Title: {{product.title}}
+    </div>
+    <div class="show-product">
+        Description: {{product.description}}
+    </div>
+    <div class="show-product">
+        Price: ${{product.price}}
+    </div>
+    <div>
+      {{#if product.userIsLoggedIn}}
+        <button class="add-cart" data-id="{{product.id}}">Add to Cart</button>
+      {{else}}
+        Sign in to Add to Cart
+      {{/if}}
+    </div> -->
+
+  <div class="col-md-4 col-xs-6 product" data-id="{{product.id}}" style="width: 40rem;">
+    <div class="card-group">
+      <div class="card">
+        <img class="show-product card-img-top" src="{{product.imagePath}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="show-product card-title">{{limit product.title 20}}</h5>
+          <p class="show-product card-text">{{limit product.description 120}}</p>
+          <p class="show-product card-text text-muted">Price: ${{product.price}}</p>
+          {{#if product.userIsLoggedIn}}
+          <center><button class="add-cart" data-id="{{product.id}}">Add to Cart</button></center>
+          {{else}}
+          Sign in to Add to Cart
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
+{{/each}}
