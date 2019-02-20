@@ -6,6 +6,7 @@ const showCartTemplate = require('../templates/cart-listing.handlebars')
 const onGetCartSuccess = response => {
   store.Sum = 0
   store.cart = response.cart
+  console.log(store.cart)
   const products = response.cart.products
   console.log(products.length)
   if (products.length > 0) {

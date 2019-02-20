@@ -3,6 +3,7 @@
 const api = require('./api')
 const ui = require('./ui')
 const store = require('../store')
+const cartEvents = require('../cart/events')
 
 const checkoutHandler = StripeCheckout.configure({
   key: 'pk_test_Ba2NFx0UbzDjWo1LB87WJXYN',
@@ -23,8 +24,6 @@ const handleToken = function (token) {
   api.checkout(token)
     .then(ui.onCheckoutSuccess)
     .then((response) => {
-      console.log('response in then', response)
-      console.log('cart in response', store.cart)
       const products = store.cart.products
       store.newProducts = []
       for (let i = 0; i < products.length; i++) {
@@ -49,12 +48,24 @@ const handleToken = function (token) {
           totalPrice: store.Sum
         }
       }
-      console.log(purchase)
-      api.saveOrder(purchase)
-        .then(console.log)
-        .catch(console.error)
+      onSaveOrder(purchase)
     })
     .catch(ui.onCheckoutFailure)
+}
+
+const onSaveOrder = data => {
+  api.saveOrder(data)
+    .then((response) => {
+      console.log('response in save order', response)
+      return store.data
+    })
+    .then(() => {
+      store.emptyCart.cart.owner = store.user._id
+      cartEvents.onUpdateCart(store.emptyCart)
+      return store.emptyCart
+    })
+    .then(console.log('clean cart success'))
+    .catch(console.error)
 }
 
 const onCheckout = () => {

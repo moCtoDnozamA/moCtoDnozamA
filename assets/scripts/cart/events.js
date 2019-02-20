@@ -53,12 +53,16 @@ const onAddCart = event => {
   }
 
   console.log('sum is', store.Sum)
-  const data = {}
-  data.cart = cart
-  console.log('data', data)
+  store.data = {}
+  store.data.cart = cart
+  console.log('data', store.data)
+  onUpdateCart(store.data)
+}
+
+const onUpdateCart = data => {
   api.updateCart(data)
     .then(onGetCart)
-    .then(console.log())
+    .then(console.log)
     .catch()
 }
 
@@ -74,13 +78,10 @@ const onRemoveProduct = event => {
   }
   cart.products = cart.products.filter((product) => product.quantity > 0)
 
-  const data = {}
-  data.cart = cart
-  console.log('data', data)
-  api.updateCart(data)
-    .then(onGetCart)
-    .then(console.log())
-    .catch()
+  store.data = {}
+  store.data.cart = cart
+  console.log('data', store.data)
+  onUpdateCart(store.data)
 }
 
 const addCartEventHandlers = () => {
@@ -93,5 +94,6 @@ const addCartEventHandlers = () => {
 module.exports = {
   addCartEventHandlers,
   onCreateCart,
-  onGetCart
+  onGetCart,
+  onUpdateCart
 }

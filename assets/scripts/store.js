@@ -1,7 +1,13 @@
 'use strict'
 
 const store = {
-  newProducts: []
+  newProducts: [],
+  emptyCart: {
+    cart: {
+      products: [],
+      owner: null
+    }
+  }
 }
 
 module.exports = store
