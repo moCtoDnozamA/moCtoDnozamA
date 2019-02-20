@@ -24,9 +24,10 @@ const onSignUp = event => {
   store.credentials = data
   api.signUp(data)
     .then(ui.onSignUpSuccess)
-    .then(onSignUpIn)
+
     // when sign up success can creata a new cart for user
     .then((id) => cartEvents.onCreateCart(id))
+    .then(onSignUpIn)
     .catch(ui.onSignUpFailure)
   $('form').trigger('reset')
   $('#signUpModal').modal('hide')
