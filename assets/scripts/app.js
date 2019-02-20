@@ -12,6 +12,7 @@ $(() => {
   $('.view-cart').hide()
   $('.checkout').hide()
   $('#index-orders').hide()
+  $('#sidebar').hide()
   authenticationEvents.addAuthEventHandlers()
   productEvents.addProductEventHandlers()
   cartEvents.addCartEventHandlers()

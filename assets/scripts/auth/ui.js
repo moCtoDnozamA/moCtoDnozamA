@@ -23,6 +23,7 @@ const onSignInSuccess = response => {
   $('.sign-up').hide()
   $('#cart').show()
   $('.index-orders').show()
+  $('#sidebar').show()
 }
 
 const onSignUpSuccess = response => {
@@ -45,7 +46,10 @@ const onSignOutSuccess = response => {
   $('.sign-up').show()
   $('.checkout').hide()
   $('#cart').hide()
+  $('#orders').hide()
   $('.index-orders').hide()
+  $('#sidebar').hide()
+  $('#products').show()
 }
 
 const onChangePasswordSuccess = response => {

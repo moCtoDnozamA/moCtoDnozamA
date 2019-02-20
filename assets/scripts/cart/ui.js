@@ -19,6 +19,9 @@ const onGetCartSuccess = response => {
   $('#cart').html('')
   const showCartHtml = showCartTemplate({cartProducts: response.cart.products, totalPrice: store.Sum})
   $('#cart').html(showCartHtml)
+  $('#products').hide()
+  $('#orders').hide()
+  $('#cart').show()
 }
 
 module.exports = {
