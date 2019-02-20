@@ -33,9 +33,14 @@ const onCheckoutFailure = () => {
   $('#user-message').html('<a class="btn btn-danger">Check out failed.</a>')
 }
 
+const onFailure = () => {
+  $('#user-message').html('<a class="btn btn-danger">Error.</a>')
+}
+
 module.exports = {
   onCheckoutSuccess,
   onCheckoutFailure,
   onGetOrdersSuccess,
-  onGetOrdersFail
+  onGetOrdersFail,
+  onFailure
 }
