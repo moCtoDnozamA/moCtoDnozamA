@@ -21,7 +21,6 @@ const onSignInSuccess = response => {
   $('.checkout').show()
   $('.sign-in').hide()
   $('.sign-up').hide()
-  $('.checkout').show()
 }
 
 const onSignUpSuccess = response => {
