@@ -20,7 +20,7 @@ const checkoutHandler = StripeCheckout.configure({
 // })
 
 const handleToken = function (token) {
-  console.log(store.Sum)
+  // console.log(store.Sum)
   api.checkout(token)
     .then(ui.onCheckoutSuccess)
     .then((response) => {
@@ -29,10 +29,10 @@ const handleToken = function (token) {
       for (let i = 0; i < products.length; i++) {
         for (const key in products[i]) {
           if (key === 'product') {
-            console.log('key is product', products[i][key])
+            // console.log('key is product', products[i][key])
             const product = products[i][key]
             store.orderProduct = (({ imagePath,description,price,title }) => ({ imagePath, description, price, title }))(product)
-            console.log('picked is product', store.orderProduct)
+            // console.log('picked is product', store.orderProduct)
           }
           if (key === 'quantity') {
             store.orderQuantity = products[i][key]
@@ -56,7 +56,7 @@ const handleToken = function (token) {
 const onSaveOrder = data => {
   api.saveOrder(data)
     .then((response) => {
-      console.log('response in save order', response)
+      // console.log('response in save order', response)
       return store.data
     })
     .then(() => {

@@ -25,7 +25,7 @@ const onGetProduct = event => {
 
 // TODO: Only used to initially seed `products` collection
 // const onSeedProducts = () => {
-//   console.log('This is onSeedProducts')
+//   // console.log('This is onSeedProducts')
 //
 //   api.seedProducts()
 //
