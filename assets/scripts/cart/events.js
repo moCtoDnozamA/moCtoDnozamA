@@ -4,13 +4,6 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('../store')
 
-// const onGetCarts = event => {
-//   // console.log(store.user._id)
-//   api.getCarts()
-//     .then(// console.log)
-//     .catch(console.error)
-// }
-
 const onGetCart = () => {
   api.getCart(store.user._id)
     .then(ui.onGetCartSuccess)
@@ -20,25 +13,18 @@ const onGetCart = () => {
 const onShowCart = () => {
   api.getCart(store.user._id)
     .then(ui.onShowCartSuccess)
-    .catch(console.error)
+    .catch(ui.onFailure)
 }
 
 const onCreateCart = id => {
-  // console.log('create cart')
   api.createCart(id)
-    .then(console.log)
-    .catch()
+    .then(ui.onCreateCartSuccess)
+    .catch(ui.onFailure)
 }
 
 const onAddCart = event => {
-  // // console.log(event)
-  // const productId = $(event.target).closest('div.product').data('id')
-  // // console.log(productId)
   const productId = event.target.dataset.id
-  // // console.log(productId)
-  // // console.log('cart in add', store.cart)
   const cart = store.cart
-  // // console.log(cart)
   const productAddToCart = {
     product: productId,
     quantity: 1
@@ -58,23 +44,20 @@ const onAddCart = event => {
     cart.products.push(productAddToCart)
   }
 
-  // console.log('sum is', store.Sum)
   store.data = {}
   store.data.cart = cart
-  // console.log('data', store.data)
   onUpdateCart(store.data)
 }
 
 const onUpdateCart = data => {
   api.updateCart(data)
     .then(onGetCart)
-    .then(console.log)
-    .catch()
+    .then(ui.onUpdateCartSuccess)
+    .catch(ui.onFailure)
 }
 
 const onRemoveProduct = event => {
   const productId = event.target.dataset.id
-  // console.log(productId)
   const cart = store.cart
   for (let i = 0; i < cart.products.length; i++) {
     const products = cart.products[i]
@@ -86,7 +69,6 @@ const onRemoveProduct = event => {
 
   store.data = {}
   store.data.cart = cart
-  // console.log('data', store.data)
   onUpdateCart(store.data)
 }
 
