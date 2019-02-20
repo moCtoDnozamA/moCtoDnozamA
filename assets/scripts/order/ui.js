@@ -17,7 +17,9 @@ const onGetOrdersSuccess = response => {
     $('#orders').append('<hr>')
   }
 }
-
+const onGetOrdersFail = () => {
+  $('#user-message').html('<a class="btn btn-danger">Get History Fail</a>')
+}
 
 const onCheckoutSuccess = response => {
   $('#user-message').html('<a class="btn btn-danger">Check out success</a>')
@@ -31,5 +33,6 @@ const onCheckoutFailure = () => {
 module.exports = {
   onCheckoutSuccess,
   onCheckoutFailure,
-  onGetOrdersSuccess
+  onGetOrdersSuccess,
+  onGetOrdersFail
 }
