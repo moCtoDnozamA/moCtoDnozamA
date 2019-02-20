@@ -10,14 +10,15 @@ const onGetOrdersSuccess = response => {
   $('#orders').append(showTitleHTML)
   for (let i = 0; i < response.order.length; i++) {
     const products = response.order[i].orderData.products
-    // console.log('products show in order', products)
-    const showOrderHTML = showOrdersTemplate({products: products})
+    const createDate = new Date(response.order[i].createdAt)
+    const totalPrice = response.order[i].totalPrice
+    const showOrderHTML = showOrdersTemplate({products: products, date: createDate, price: totalPrice})
     $('#orders').append(showOrderHTML)
     $('#orders').append('<hr>')
-    $('#products').hide()
-    $('#cart').hide()
-    $('#orders').show()
   }
+  $('#products').hide()
+  $('#cart').hide()
+  $('#orders').show()
 }
 const onGetOrdersFail = () => {
   $('#user-message').html('<a class="btn btn-danger">Get History Fail</a>')
