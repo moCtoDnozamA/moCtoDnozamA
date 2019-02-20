@@ -2,13 +2,14 @@
 
 const store = require('../store')
 const productEvents = require('../product/events')
+const showSeedButtonTemplate = require('../templates/show-seedButton.handlebars')
 
 const onSignInSuccess = response => {
-  console.log(response.user)
   if (response.user.admin) {
     $('#user-message').html(`<a class='btn btn-danger'>welcome admin ${response.user.email}</a>`)
+    $('#seed').html(showSeedButtonTemplate)
   } else {
-    $('#user-message').html('<a class="btn btn-danger">Sign in success</a>')
+    $('#user-message').html('<a class="btn btn-danger" id="seed-message">Sign in success</a>')
   }
   store.user = response.user
   // reload product listing with "Add to Cart" buttons on successful sign in
@@ -29,6 +30,7 @@ const onSignUpSuccess = response => {
 
 const onSignOutSuccess = response => {
   $('#user-message').html('<a class="btn btn-danger">Sign out success</a>')
+  $('#seed').html('')
   store.user = null
   store.cart = null
   store.Sum = null

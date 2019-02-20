@@ -33,6 +33,13 @@ const onGetProduct = event => {
 // }
 // End TODO: Only used to initially seed `products` collection
 
+const onSeedProducts = () => {
+  api.seedProducts()
+    .then(console.log)
+    .catch(console.error)
+  $('#seedModal').modal('hide')
+}
+
 const addProductEventHandlers = () => {
   // TODO: Only used to initially seed `products` collection
   // onSeedProducts()
@@ -46,6 +53,7 @@ const addProductEventHandlers = () => {
   $('#show-product').on('click', onGetProduct)
   // For click on product div - not "Add to Cart" button
   $('#products').on('click', '.show-product', onGetProduct)
+  $('body').on('click', '#seed-button', onSeedProducts)
 }
 
 module.exports = {
