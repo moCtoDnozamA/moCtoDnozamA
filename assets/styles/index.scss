@@ -3,7 +3,13 @@ $background: #d3d3d3;
 
 body {
   background-color: $background;
+  display: flex;
   padding: 50px;
+}
+
+.container {
+  width: 70vw;
+  justify-content: center;
 }
 
 h1 {
@@ -26,9 +32,9 @@ h1 {
 
 .sidebar {
   height: 100%;
-  width: 0;
+  width: 300px;
   position: fixed;
-  z-index: 1;
+  z-index: 1000;
   top: 0;
   left: 0;
   background-color: #111;
