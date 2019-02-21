@@ -35,8 +35,8 @@ const onGetProduct = event => {
 
 const onSeedProducts = () => {
   api.seedProducts()
-    .then(console.log)
-    .catch(console.error)
+  // .then(console.log)
+  // .catch(console.error)
   $('#seedModal').modal('hide')
 }
 
