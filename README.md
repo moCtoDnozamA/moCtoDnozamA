@@ -34,13 +34,15 @@ We made initial wireframes and an ERD for our prompt. We tried several different
 
 ## UNSOLVED PROBLEMS
 
-<!-- TODO -->
+Clean up code.
+Add test card number into side bar.
+Edit card divs to be equal size.
 
 ## LINKS
 [Back End Repo](https://github.com/moCtoDnozamA/moCtoDnozamA.github.io-api)
 
-[Front End Repo](https://github.com/moCtoDnozamA/moCtoDnozamA.github.io)
+[Front End Repo](https://github.com/moCtoDnozamA/moctodnozama)
 
-[Deployed Front End](https://moctodnozama.github.io/)
+[Deployed Front End](https://moctodnozama.github.io/moctodnozama/)
 
-[Deployed Heroku](<!--LINK HERE-->)
+[Deployed Heroku](https://moctodnozama.herokuapp.com)

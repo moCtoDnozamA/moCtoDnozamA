@@ -16,7 +16,6 @@ const onShowCart = () => {
 }
 
 const onCreateCart = id => {
-  // console.log('create cart')
   api.createCart(id)
     .then(ui.onCreateCartSuccess)
     .catch(ui.onFailure)
@@ -44,7 +43,6 @@ const onAddCart = event => {
     cart.products.push(productAddToCart)
   }
 
-  // console.log('sum is', store.Sum)
   store.data = {}
   store.data.cart = cart
   // console.log('data', store.data)
