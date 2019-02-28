@@ -6,10 +6,10 @@ const showSeedButtonTemplate = require('../templates/show-seedButton.handlebars'
 
 const onSignInSuccess = response => {
   if (response.user.admin) {
-    $('#user-message').html(`<a class='btn btn-success'>welcome admin ${response.user.email}</a>`)
+    $('#user-message').html(`<div class="alert alert-success" role="alert">welcome admin ${response.user.email}</div>`)
     $('#seed').html(showSeedButtonTemplate)
   } else {
-    $('#user-message').html('<a class="btn btn-success" id="seed-message">Sign in success</a>')
+    $('#user-message').html('<div class="alert alert-success" role="alert">Sign in success</div>')
   }
   store.user = response.user
   // reload product listing with "Add to Cart" buttons on successful sign in
@@ -24,15 +24,17 @@ const onSignInSuccess = response => {
   $('#cart').show()
   $('.index-orders').show()
   $('#sidebar').show()
+  userMessageFade()
 }
 
 const onSignUpSuccess = response => {
-  $('#user-message').html('<a class="btn btn-success">Sign up success</a>')
+  $('#user-message').html('<div class="alert alert-success" role="alert">Sign up success</div>')
+  userMessageFade()
   return response.user._id
 }
 
 const onSignOutSuccess = response => {
-  $('#user-message').html('<a class="btn btn-success">Sign out success</a>')
+  $('#user-message').html('<div class="alert alert-success" role="alert">Sign out success</div>')
   $('#seed').html('')
   store.user = null
   store.cart = null
@@ -50,23 +52,34 @@ const onSignOutSuccess = response => {
   $('.index-orders').hide()
   $('#sidebar').hide()
   $('#products').show()
+  userMessageFade()
 }
 
 const onChangePasswordSuccess = response => {
-  $('#user-message').html('<a class="btn btn-success">Change Password success</a>')
+  $('#user-message').html('<div class="alert alert-success" role="alert">Change Password success</div>')
+  userMessageFade()
 }
 
 const onSignInFailure = response => {
-  $('#user-message').html('<a class="btn btn-danger">Sign In Fail</a>')
+  $('#user-message').html('<div class="alert alert-danger" role="alert">Sign In Fail</div>')
+  userMessageFade()
 }
+
 const onSignOutFailure = response => {
-  $('#user-message').html('<a class="btn btn-danger">Sign Out Fail</a>')
+  $('#user-message').html('<div class="alert alert-danger" role="alert">Sign Out Fail</div>')
+  userMessageFade()
 }
 const onSignUpFailure = response => {
-  $('#user-message').html('<a class="btn btn-danger">Sign Up Fail</a>')
+  $('#user-message').html('<div class="alert alert-danger" role="alert">Sign Up Fail</div>')
+  userMessageFade()
 }
 const onChangePasswordFailure = response => {
-  $('#user-message').html('<a class="btn btn-danger">Change Password Fail</a>')
+  $('#user-message').html('<div class="alert alert-danger" role="alert">Change Password Fail</div>')
+  userMessageFade()
+}
+
+const userMessageFade = () => {
+  $('#user-message').fadeOut(1000)
 }
 
 module.exports = {

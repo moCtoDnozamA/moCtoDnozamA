@@ -21,20 +21,26 @@ const onGetOrdersSuccess = response => {
   $('#orders').show()
 }
 const onGetOrdersFail = () => {
-  $('#user-message').html('<a class="btn btn-danger">Get History Fail</a>')
+  $('#user-message').html('<div class="alert alert-danger" role="alert">Get History Fail</div>')
 }
 
 const onCheckoutSuccess = response => {
-  $('#user-message').html('<a class="btn btn-danger">Check out success</a>')
+  $('#user-message').html('<div class="alert alert-success" role="alert">Check out success</div>')
   return response
 }
 
 const onCheckoutFailure = () => {
-  $('#user-message').html('<a class="btn btn-danger">Check out failed.</a>')
+  $('#user-message').html('<div class="alert alert-danger" role="alert">Check out failed.</div>')
+  userMessageFade()
 }
 
 const onFailure = () => {
-  $('#user-message').html('<a class="btn btn-danger">Error.</a>')
+  $('#user-message').html('<div class="alert alert-danger" role="alert">Error.</div>')
+  userMessageFade()
+}
+
+const userMessageFade = () => {
+  $('#user-message').fadeOut(1000)
 }
 
 module.exports = {
