@@ -32,11 +32,17 @@ const onShowCartSuccess = (response) => {
 }
 
 const onUpdateCartSuccess = () => {
-  $('#user-message').html('<a class="btn btn-success">Update cart success</a>')
+  $('#user-message').html('<div class="alert alert-success" role="alert">Update cart success</div>')
+  userMessageFade()
 }
 
 const onFailure = () => {
-  $('#user-message').html('<a class="btn btn-danger">Error.</a>')
+  $('#user-message').html('<div class="alert alert-danger" role="alert">Error.</div>')
+  userMessageFade()
+}
+
+const userMessageFade = () => {
+  $('#user-message').fadeOut(1000)
 }
 
 module.exports = {
