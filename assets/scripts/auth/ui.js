@@ -5,6 +5,7 @@ const productEvents = require('../product/events')
 const showSeedButtonTemplate = require('../templates/show-seedButton.handlebars')
 
 const onSignInSuccess = response => {
+  $('#user-message').show()
   if (response.user.admin) {
     $('#user-message').html(`<div class="alert alert-success" role="alert">welcome admin ${response.user.email}</div>`)
     $('#seed').html(showSeedButtonTemplate)
@@ -28,12 +29,14 @@ const onSignInSuccess = response => {
 }
 
 const onSignUpSuccess = response => {
+  $('#user-message').show()
   $('#user-message').html('<div class="alert alert-success" role="alert">Sign up success</div>')
   userMessageFade()
   return response.user._id
 }
 
 const onSignOutSuccess = response => {
+  $('#user-message').show()
   $('#user-message').html('<div class="alert alert-success" role="alert">Sign out success</div>')
   $('#seed').html('')
   store.user = null
@@ -56,30 +59,35 @@ const onSignOutSuccess = response => {
 }
 
 const onChangePasswordSuccess = response => {
+  $('#user-message').show()
   $('#user-message').html('<div class="alert alert-success" role="alert">Change Password success</div>')
   userMessageFade()
 }
 
 const onSignInFailure = response => {
+  $('#user-message').show()
   $('#user-message').html('<div class="alert alert-danger" role="alert">Sign In Fail</div>')
   userMessageFade()
 }
 
 const onSignOutFailure = response => {
+  $('#user-message').show()
   $('#user-message').html('<div class="alert alert-danger" role="alert">Sign Out Fail</div>')
   userMessageFade()
 }
 const onSignUpFailure = response => {
+  $('#user-message').show()
   $('#user-message').html('<div class="alert alert-danger" role="alert">Sign Up Fail</div>')
   userMessageFade()
 }
 const onChangePasswordFailure = response => {
+  $('#user-message').show()
   $('#user-message').html('<div class="alert alert-danger" role="alert">Change Password Fail</div>')
   userMessageFade()
 }
 
 const userMessageFade = () => {
-  $('#user-message').fadeOut(1000)
+  $('#user-message').fadeOut(3000)
 }
 
 module.exports = {
