@@ -45,7 +45,17 @@ const onGetProductSuccess = productData => {
   $('#products').html(showProductsHTML)
 }
 
+const onSeedProductsSuccess = () => {
+  $('#user-message').html('<div class="alert alert-success" role="alert">Products Successfully Seeded</div>')
+}
+
+const onSeedProductsFailure = () => {
+  $('#user-message').html('<div class="alert alert-success" role="alert">Product Seeding Failed</div>')
+}
+
 module.exports = {
   onGetProductsSuccess,
-  onGetProductSuccess
+  onGetProductSuccess,
+  onSeedProductsSuccess,
+  onSeedProductsFailure
 }
