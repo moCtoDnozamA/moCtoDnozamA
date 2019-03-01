@@ -46,11 +46,19 @@ const onGetProductSuccess = productData => {
 }
 
 const onSeedProductsSuccess = () => {
+  $('#user-message').show()
   $('#user-message').html('<div class="alert alert-success" role="alert">Products Successfully Seeded</div>')
+  userMessageFade()
 }
 
 const onSeedProductsFailure = () => {
+  $('#user-message').show()
   $('#user-message').html('<div class="alert alert-success" role="alert">Product Seeding Failed</div>')
+  userMessageFade()
+}
+
+const userMessageFade = () => {
+  $('#user-message').fadeOut(3000)
 }
 
 module.exports = {
