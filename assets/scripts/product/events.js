@@ -23,21 +23,11 @@ const onGetProduct = event => {
   $('form').trigger('reset')
 }
 
-// TODO: Only used to initially seed `products` collection
-// const onSeedProducts = () => {
-//   // console.log('This is onSeedProducts')
-//
-//   api.seedProducts()
-//
-//   $('form').trigger('reset')
-// }
-// End TODO: Only used to initially seed `products` collection
-
 const onSeedProducts = () => {
   api.seedProducts()
-  // .then(console.log)
-  // .catch(console.error)
-  $('#seedModal').modal('hide')
+    .then(ui.onSeedProductsSuccess)
+    .catch(ui.onSeedProductsFailure)
+  // $('#seedModal').modal('hide')
 }
 
 const addProductEventHandlers = () => {
