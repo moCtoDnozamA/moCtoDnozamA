@@ -31,15 +31,10 @@ const onSeedProducts = () => {
 }
 
 const addProductEventHandlers = () => {
-  // TODO: Only used to initially seed `products` collection
-  // onSeedProducts()
-  // End TODO: Only used to initially seed `products` collection
-  // Show all products on page load
   onGetProducts()
   // For click on "Home" button
   $('#index-products').on('click', onGetProducts)
   // For click on View Product button - not add to cart button
-  // TODO: Probably remove this after ui is set up.
   $('#show-product').on('click', onGetProduct)
   // For click on product div - not "Add to Cart" button
   $('#products').on('click', '.show-product', onGetProduct)
