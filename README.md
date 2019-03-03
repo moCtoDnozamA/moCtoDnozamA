@@ -1,5 +1,7 @@
 # moCtoDnozamA Client
 
+This repository is for the front end client of a team built full-stack javascript application. It features Nozama, a mock e-commerce app. The client relies heavily on Javascript in order to make a seamless representation of browsing for items, adding an item to a cart, checking out (utilizing a third party API 'Stripe'), and looking at previous order history.
+
 ## TECHNOLOGIES IN USE
 
 - JavaScript
@@ -46,3 +48,11 @@ Edit card divs to be equal size.
 [Deployed Front End](https://moctodnozama.github.io/moctodnozama/)
 
 [Deployed Heroku](https://moctodnozama.herokuapp.com)
+
+## TEAM
+
+[Carlo Jacob](https://github.com/carlojacob)
+
+[Jason Zhang](https://github.com/jason920207)
+
+[Jenny Northcott](https://github.com/jennasaurusrex)
