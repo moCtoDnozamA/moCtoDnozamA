@@ -17,10 +17,7 @@ const getProduct = productId => {
   })
 }
 
-// TODO: Only used to initially seed `products` collection
 const seedProducts = () => {
-  // console.log('Products are seeded after this')
-  // console.log('This is isAdmin:', store.user)
   return $.ajax({
     url: config.apiUrl + '/products',
     method: 'POST',
@@ -33,7 +30,6 @@ const seedProducts = () => {
     }
   })
 }
-// End TODO: Only used to initially seed `products` collection
 
 module.exports = {
   getProducts,
